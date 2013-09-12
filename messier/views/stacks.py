@@ -7,8 +7,7 @@ from messier import config
 from messier.lib.aws.cloudformation import Connection, Stacks
 
 
-conn = Connection(aws_access_key_id=config["AWS_ACCESS_KEY_ID"],
-                  aws_secret_access_key=config["AWS_SECRET_ACCESS_KEY"])
+conn = Connection()
 stacks = Module(__name__)
 
 

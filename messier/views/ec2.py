@@ -8,8 +8,7 @@ from messier.lib.aws.ec2 import Connection, Instances
 from messier.lib.util import paginated
 
 
-conn = Connection(aws_access_key_id=config["AWS_ACCESS_KEY_ID"],
-                  aws_secret_access_key=config["AWS_SECRET_ACCESS_KEY"])
+conn = Connection()
 ec2 = Module(__name__)
 
 @ec2.route("/ec2/instances.json")

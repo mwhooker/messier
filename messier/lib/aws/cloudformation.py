@@ -25,11 +25,9 @@ class Stacks(object):
                       Stacks.list(connection))[0]
 
 
-def Connection(aws_access_key_id, aws_secret_access_key):
+def Connection():
     return boto.cloudformation.connection.\
-        CloudFormationConnection(aws_access_key_id=aws_access_key_id,
-                                 aws_secret_access_key=aws_secret_access_key)
-
+        CloudFormationConnection()
 
 def Stack(name, **properties):
     return Resource(name, **properties)

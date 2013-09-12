@@ -16,10 +16,7 @@ class Instances(object):
                       Instances.list(cxn))[0]
 
 
-def Connection(aws_access_key_id, aws_secret_access_key):
-    return boto.ec2.connection.\
-        EC2Connection(aws_access_key_id=aws_access_key_id,
-                      aws_secret_access_key=aws_secret_access_key)
+Connection = boto.ec2.EC2Connection
 
 
 def Instance(name, **properties):
