@@ -1,0 +1,41 @@
+<div id="instance-detail">
+  <i class="icon-laptop icon-large"></i>
+  <strong>{{ instance.id }}</strong> {{ instance.groups | groups_formatted }}
+  <table class="table table-condensed">
+    <tr>
+      <td class="instance-detail-cell">
+        <span class="instance-detail-key">Hostname:</span>
+        <span class="instance-detail-value">{{ instance.dns_name }}</span>
+      </td>
+      <td class="instance-detail-cell">
+        <span class="instance-detail-key">Zone:</span>
+        <span
+           class="instance-detail-value">{{ instance._placement.zone }}</span>
+      </td>
+    </tr>
+    <tr>
+      <td class="instance-detail-cell">
+        <span class="instance-detail-key">IP Address:</span>
+        <span
+           class="instance-detail-value">{{ instance.ip_address }}</span>
+      </td>
+      <td class="instance-detail-cell">
+        <span class="instance-detail-key">Instance Type:</span>
+        <span
+           class="instance-detail-value">{{ instance.instance_type }}</span>
+      </td>
+    </tr>
+    <tr>
+      <td class="instance-detail-cell">
+        <span class="instance-detail-key">SSH Key:</span>
+        <span
+           class="instance-detail-value">{{ instance.key_name }}</span>
+      </td>
+      <td class="instance-detail-cell">
+        <span class="instance-detail-key">Image:</span>
+        <span
+           class="instance-detail-value">{{ instance.image_id }}</span>
+      </td>
+    </tr>
+  </table>
+</div>

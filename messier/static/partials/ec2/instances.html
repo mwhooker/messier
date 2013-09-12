@@ -1,0 +1,41 @@
+<div id="wrap">
+  <ng-include src="'/static/partials/_top.html'"></ng-include>
+  <div class="container">
+    <ul class="pagination" ng-repeat="page in pages">
+      <li ng-class="page.cls"><a href="#" ng-click="getInstances(page.num)">{{ page.name }}</a></li>
+    </ul>
+    <div class="panel panel-default" ng-init="getInstances(1)">
+      <div class="panel-heading">
+        <div class="panel-title">EC2 Instances</div>
+      </div>
+      <table class="table table-condensed table-striped">
+        <thead>
+          <tr>
+            <th></th>
+            <th>ID</th>
+            <th>Public Hostname</th>
+            <th>IP Address</th>
+            <th>Launched</th>
+            <th>Size</th>
+            <th>VPC</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="instance in instances" ng-click="showDetails(instance)">
+            <td><span>&nbsp;</span><i class="icon-trash icon-large"></i></td>
+            <td><span ng-bind-html-unsafe="instance._state | instance_status"></span>
+              {{ instance.id }}</td>
+            <td>{{ instance | hostname_or_ipaddress }}</td>
+            <td>{{ instance.ip_address }}</td>
+            <td>{{ instance.launch_time | launch_timestamp }}</td>
+            <td>{{ instance.instance_type }}</td>
+            <td>{{ instance.vpc_id }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div id="footer" hidden>
+  <div class="container" ng-include="'/static/partials/ec2/_footer.html'"></div>
+</div>
